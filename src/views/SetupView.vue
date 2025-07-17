@@ -1,22 +1,50 @@
 <script setup lang="ts">
 import SetupItem from '@/components/SetupItem.vue'
 import { state } from '../state.ts'
+import { isEmpty, uniq } from 'lodash'
 
-function onUpdated(idx: number, value: string) {
+let message = ''
+let isOK = true
+
+function runChecks() {
+  let msg = ''
+  // Uniqueness
+  const deduped = uniq(state.items)
+  if (deduped.length != state.items.length) {
+    msg = 'All items must be unique'
+  }
+  // All items must be filled in
+  if (state.items.some((s: string) => isEmpty(s.trim()))) {
+    msg = 'All items must be filled in'
+  }
+  message = msg
+  isOK = message === ''
+}
+
+function updateItem(idx: number, value: string) {
   state.items[idx] = value
   //console.log('UPDATE #' + idx + ' -> ' + value)
   //console.log(state.items)
+  runChecks()
 }
 function addItem() {
-  state.items.push('')
+  if (state.items.length < 15) {
+    state.items.push('')
+  }
   //console.log('ADD; len is now ' + state.items.length)
   //console.log(state.items)
+  runChecks()
 }
 function deleteItem(idx: number) {
-  state.items.splice(idx, 1)
+  if (state.items.length > 2) {
+    state.items.splice(idx, 1)
+  }
   //console.log('DELETE #' + idx + ': len is now ' + state.items.length)
   //console.log(state.items)
+  runChecks()
 }
+
+runChecks()
 </script>
 
 <template>
@@ -32,7 +60,7 @@ function deleteItem(idx: number) {
         :modelValue="value"
         :key="index"
         v-bind:record="state.items[index]"
-        @update:model-value="(v) => onUpdated(index, v)"
+        @update:model-value="(v) => updateItem(index, v)"
         @delete="deleteItem(index)"
       />
     </ul>
@@ -40,6 +68,18 @@ function deleteItem(idx: number) {
       <font-awesome-icon :icon="['fas', 'plus-circle']" title="Add another" />
     </a>
   </div>
+  <nav>
+    Ready to decide which is best?
+    <div class="error">
+      <span v-if="!isOK"
+        ><font-awesome-icon :icon="['fas', 'exclamation-circle']" /> {{ message }}</span
+      >
+      <br />
+    </div>
+    <component :is="isOK ? 'router-link' : 'span'" to="/questions"
+      >Onwards! <font-awesome-icon :icon="['fa', 'arrow-right']"
+    /></component>
+  </nav>
 </template>
 
 <style>
