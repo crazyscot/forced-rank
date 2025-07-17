@@ -8,7 +8,7 @@ defineEmits(['delete'])
   <div>
     <input v-model="modelValue" />
     <a @click="$emit('delete')">
-      <font-awesome-icon :icon="['fas', 'trash-can']" />
+      <font-awesome-icon :icon="['fas', 'trash-can']" title="Delete" />
     </a>
   </div>
 </template>

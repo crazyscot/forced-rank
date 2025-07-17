@@ -37,7 +37,7 @@ function deleteItem(idx: number) {
       />
     </ul>
     <a @click="addItem()">
-      <font-awesome-icon :icon="['fas', 'plus-circle']" />
+      <font-awesome-icon :icon="['fas', 'plus-circle']" title="Add another" />
     </a>
   </div>
 </template>
