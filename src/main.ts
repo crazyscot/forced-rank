@@ -5,10 +5,15 @@ import App from './App.vue'
 import router from './router'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faPlusCircle, faTrashCan } from '@fortawesome/free-solid-svg-icons'
+import {
+  faPlusCircle,
+  faTrashCan,
+  faArrowRight,
+  faArrowLeft,
+} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 //import { faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons'
-library.add(faPlusCircle, faTrashCan)
+library.add(faPlusCircle, faTrashCan, faArrowRight, faArrowLeft)
 
 const app = createApp(App)
 app.component('SetupItem')

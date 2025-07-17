@@ -4,11 +4,14 @@ import { RouterLink } from 'vue-router'
 
 <template>
   <div>
+    <nav>
+      <RouterLink to="/setup"
+        >(Been here before? Jump right in!) <font-awesome-icon :icon="['fa', 'arrow-right']"
+      /></RouterLink>
+    </nav>
     <div class="greetings">
       <h1 class="green">The force-ranker prototype</h1>
     </div>
-
-    <p><RouterLink to="/setup">(Been here before? Jump right in!)</RouterLink></p>
 
     <h2>What is this?</h2>
     <p>
@@ -32,7 +35,11 @@ import { RouterLink } from 'vue-router'
     <h2>Who made this?</h2>
     <p><a href="https://www.chiark.greenend.org.uk/~ryounger/">Ross Younger</a></p>
     <h2>Ready?</h2>
-    <p><RouterLink to="/setup">Let's get started!</RouterLink></p>
+    <p>
+      <RouterLink to="/setup"
+        >Let's get started! <font-awesome-icon :icon="['fa', 'arrow-right']"
+      /></RouterLink>
+    </p>
   </div>
 </template>
 

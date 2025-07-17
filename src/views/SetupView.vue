@@ -20,6 +20,9 @@ function deleteItem(idx: number) {
 </script>
 
 <template>
+  <nav>
+    <RouterLink to="/"><font-awesome-icon :icon="['fa', 'arrow-left']" /> (Back) </RouterLink>
+  </nav>
   <div class="setup">
     <h1>The items to rank</h1>
 
