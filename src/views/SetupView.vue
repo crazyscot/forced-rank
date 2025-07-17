@@ -1,20 +1,10 @@
 <script setup lang="ts">
 import SetupItem from '@/components/SetupItem.vue'
-
-defineEmits(['item'])
-
-const props = defineProps({
-  items: {
-    type: Array<string>,
-    required: true,
-    default: ['foo', 'bar'],
-  },
-})
+import { state } from '../state.ts'
 
 function onUpdated(idx: number, value: string) {
   console.log('UPDATE: ' + idx + ' -> ' + value)
-  this.$emit('item', idx, value)
-  console.log(props.items)
+  console.log(state.items)
 }
 </script>
 
@@ -24,10 +14,10 @@ function onUpdated(idx: number, value: string) {
 
     <ul>
       <SetupItem
-        v-for="(value, index) in items"
+        v-for="(value, index) in state.items"
         :modelValue="value"
         :key="index"
-        v-bind:record="items[index]"
+        v-bind:record="state.items[index]"
         @update:model-value="(v) => onUpdated(index, v)"
       />
     </ul>
