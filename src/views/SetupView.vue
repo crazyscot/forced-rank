@@ -3,14 +3,25 @@ import SetupItem from '@/components/SetupItem.vue'
 import { state } from '../state.ts'
 
 function onUpdated(idx: number, value: string) {
-  console.log('UPDATE: ' + idx + ' -> ' + value)
-  console.log(state.items)
+  state.items[idx] = value
+  //console.log('UPDATE #' + idx + ' -> ' + value)
+  //console.log(state.items)
+}
+function addItem() {
+  state.items.push('')
+  //console.log('ADD; len is now ' + state.items.length)
+  //console.log(state.items)
+}
+function deleteItem(idx: number) {
+  state.items.splice(idx, 1)
+  //console.log('DELETE #' + idx + ': len is now ' + state.items.length)
+  //console.log(state.items)
 }
 </script>
 
 <template>
   <div class="setup">
-    <h1>This is a setup page</h1>
+    <h1>The items to rank</h1>
 
     <ul>
       <SetupItem
@@ -19,9 +30,12 @@ function onUpdated(idx: number, value: string) {
         :key="index"
         v-bind:record="state.items[index]"
         @update:model-value="(v) => onUpdated(index, v)"
+        @delete="deleteItem(index)"
       />
     </ul>
-    <p>That is all.</p>
+    <a @click="addItem()">
+      <font-awesome-icon :icon="['fas', 'plus-circle']" />
+    </a>
   </div>
 </template>
 
@@ -34,10 +48,3 @@ function onUpdated(idx: number, value: string) {
   }
 }
 </style>
-
-<!-- TODO:
- Prop editing... need to have the parent own and update the global state?
-
- Add, Remove, Edit ... Look at https://vuejs.org/guide/essentials/event-handling
- "the child should emit an event to let the parent perform the mutation" https://vuejs.org/guide/components/events.html
- -->
