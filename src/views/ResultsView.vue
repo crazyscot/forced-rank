@@ -75,9 +75,8 @@ const results = computed(() => {
       </tbody>
     </table>
     <div v-if="!valid">How did you get here? There are no results...</div>
-    <!-- TODO make score column optional (already in state) -->
-    <!-- TODO make grid optional -->
-    <MatrixDisplay v-if="valid" />
+    <!-- TODO toggles for optional stuff -->
+    <MatrixDisplay v-if="valid && options.results_show_grid" />
   </div>
 
   <br style="height: 3ex" />

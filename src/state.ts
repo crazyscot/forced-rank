@@ -27,6 +27,7 @@ export const state = reactive({
 export const options = reactive({
   debug_matrix: true,
   show_scores: true,
+  results_show_grid: true,
 })
 
 export function initialiseQuestions() {
