@@ -29,62 +29,6 @@ a,
   padding: 1ex 1em;
 }
 
-.matrix {
-  border-collapse: collapse;
-  overflow-x: auto;
-  th.horiz {
-    border: 1px solid var(--color-border-hover);
-    color: var(--color-heading);
-  }
-  /* text colour! maybe alternate? */
-  th.vert {
-    border: 1px solid var(--color-border-hover);
-    rotate: -90deg;
-    padding: 0.5em 0.5ex; /* yes these are backwards */
-  }
-  td.valid {
-    background: var(--color-background-soft);
-    color: var(--color-heading);
-    border: 1px solid var(--color-border);
-  }
-  td.answered {
-    color: var(--color-text);
-    background: var(--color-background-mute);
-    border: 1px solid var(--color-border);
-  }
-  td.invalid {
-    background: var(--color-text);
-    opacity: 50%;
-  }
-  th,
-  td {
-    padding: 0.5ex 0.5em;
-    text-align: center;
-  }
-}
-
-table.question {
-  tr.question {
-    background: var(--color-accent);
-    font-size: 250%;
-    td {
-      display: inline-block;
-      cursor: pointer;
-      min-width: 100%;
-      a {
-        color: var(--color-accent-text);
-      }
-    }
-  }
-  text-align: center;
-  td.or {
-    padding: 2ex 0;
-  }
-  a {
-    display: block;
-  }
-}
-
 @media (hover: hover) {
   a:hover {
     background-color: hsla(160, 100%, 37%, 0.2);

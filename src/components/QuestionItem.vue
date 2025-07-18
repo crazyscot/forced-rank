@@ -32,6 +32,28 @@ import { RouterLink } from 'vue-router'
 </template>
 
 <style>
+table.question {
+  tr.question {
+    background: var(--color-accent);
+    font-size: 250%;
+    td {
+      display: inline-block;
+      cursor: pointer;
+      min-width: 100%;
+      a {
+        color: var(--color-accent-text);
+      }
+    }
+  }
+  text-align: center;
+  td.or {
+    padding: 2ex 0;
+  }
+  a {
+    display: block;
+  }
+}
+
 .qitem {
   display: flex;
   flex-direction: column;

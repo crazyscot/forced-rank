@@ -25,3 +25,39 @@ import MatrixCell from './MatrixCell.vue'
     </tr>
   </table>
 </template>
+
+<style>
+.matrix {
+  border-collapse: collapse;
+  overflow-x: auto;
+  th.horiz {
+    border: 1px solid var(--color-border-hover);
+    color: var(--color-heading);
+  }
+  /* text colour! maybe alternate? */
+  th.vert {
+    border: 1px solid var(--color-border-hover);
+    rotate: -90deg;
+    padding: 0.5em 0.5ex; /* yes these are backwards */
+  }
+  td.valid {
+    background: var(--color-background-soft);
+    color: var(--color-heading);
+    border: 1px solid var(--color-border);
+  }
+  td.answered {
+    color: var(--color-text);
+    background: var(--color-background-mute);
+    border: 1px solid var(--color-border);
+  }
+  td.invalid {
+    background: var(--color-text);
+    opacity: 50%;
+  }
+  th,
+  td {
+    padding: 0.5ex 0.5em;
+    text-align: center;
+  }
+}
+</style>
