@@ -56,9 +56,9 @@ export function choice(item: number) {
 
   const question = state.questions[0]
   const winner = item == 0 ? question.first : question.second
-  const loser = item == 1 ? question.first : question.second
+  //const loser = item == 1 ? question.first : question.second
+  //console.log('Response: ' + winner + ' beats ' + loser + '!')
 
-  console.log('Response: ' + winner + ' beats ' + loser + '!')
   const output = ref(state.matrix[question.second][question.first])
   output.value.answer = winner
   //console.log(state.matrix)
