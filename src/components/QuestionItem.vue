@@ -7,7 +7,7 @@ import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <div v-if="state.questions.length">
+  <div v-if="state.questions.length" class="qitem">
     <h1>Which wins?</h1>
     <table class="question">
       <QuestionRow :text="state.items[state.questions[0].first]" @clicked="choice(0)" />
@@ -30,3 +30,10 @@ import { RouterLink } from 'vue-router'
     </h2>
   </div>
 </template>
+
+<style>
+.qitem {
+  display: flex;
+  flex-direction: column;
+}
+</style>

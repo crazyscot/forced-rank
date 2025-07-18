@@ -24,3 +24,13 @@ import Matrix from '@/components/MatrixDisplay.vue'
     </div>
   </div>
 </template>
+
+<style scoped>
+@media (min-width: 1024px) {
+  .pane {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+</style>

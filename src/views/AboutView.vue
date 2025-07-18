@@ -3,7 +3,7 @@ import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <div>
+  <div class="about">
     <nav>
       <RouterLink to="/setup"
         >(Been here before? Jump right in!) <font-awesome-icon :icon="['fa', 'arrow-right']"
@@ -39,12 +39,13 @@ import { RouterLink } from 'vue-router'
     </p>
     <h2>Who made this?</h2>
     <p><a href="https://www.chiark.greenend.org.uk/~ryounger/">Ross Younger</a></p>
-    <h2>Ready?</h2>
-    <p>
+    <br height="2ex" />
+    <h3>
+      Ready?
       <RouterLink to="/setup"
         >Let's get started! <font-awesome-icon :icon="['fa', 'arrow-right']"
       /></RouterLink>
-    </p>
+    </h3>
   </div>
 </template>
 
@@ -53,7 +54,7 @@ import { RouterLink } from 'vue-router'
   .about {
     min-height: 100vh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
   }
 }
 </style>
