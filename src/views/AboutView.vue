@@ -32,6 +32,11 @@ import { RouterLink } from 'vue-router'
     <h2>What might go wrong?</h2>
     <p>There might be dead heats between items.</p>
     <p>If your preferences are circular, things might get messy.</p>
+    <h2>What do I need to know about data security?</h2>
+    <p>
+      This applet sends nothing to its server. We do not know (or care) what you are ranking. The
+      only information that the server sees is that you loaded the app.
+    </p>
     <h2>Who made this?</h2>
     <p><a href="https://www.chiark.greenend.org.uk/~ryounger/">Ross Younger</a></p>
     <h2>Ready?</h2>
