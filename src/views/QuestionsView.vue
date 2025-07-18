@@ -1,10 +1,11 @@
 <script setup lang="ts">
+import { options } from '../state.ts'
 import DebugPane from '@/components/DebugPane.vue'
 import QuestionItem from '@/components/QuestionItem.vue'
 </script>
 
 <template>
-  <DebugPane v-if="false" />
+  <DebugPane v-if="options.debug_matrix" />
   <div id="questions">
     <QuestionItem />
   </div>
