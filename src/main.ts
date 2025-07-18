@@ -11,10 +11,22 @@ import {
   faArrowRight,
   faArrowLeft,
   faExclamationCircle,
+  faUndo,
+  faPowerOff,
+  faQuestion,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 //import { faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons'
-library.add(faPlusCircle, faTrashCan, faArrowRight, faArrowLeft, faExclamationCircle)
+library.add(
+  faPlusCircle,
+  faTrashCan,
+  faArrowRight,
+  faArrowLeft,
+  faExclamationCircle,
+  faUndo,
+  faPowerOff,
+  faQuestion,
+)
 
 const app = createApp(App)
 app.component('SetupItem')
