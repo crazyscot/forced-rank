@@ -1,4 +1,4 @@
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 
 export class Question {
   first: number
@@ -48,6 +48,22 @@ export function initialiseQuestions() {
     matrix.push(row)
   }
   state.matrix = matrix
+}
+
+export function choice(item: number) {
+  // item 0 => first item was picked
+  // item 1 => second was picked
+
+  const question = state.questions[0]
+  const winner = item == 0 ? question.first : question.second
+  const loser = item == 1 ? question.first : question.second
+
+  console.log('Response: ' + winner + ' beats ' + loser + '!')
+  const output = ref(state.matrix[question.second][question.first])
+  output.value.answer = winner
+  //console.log(state.matrix)
+
+  state.questions.shift()
 }
 
 // generally:

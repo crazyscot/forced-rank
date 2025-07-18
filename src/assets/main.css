@@ -63,6 +63,29 @@ a,
   }
 }
 
+table.question {
+  tr.question {
+    background: var(--color-accent);
+    font-size: 250%;
+    td {
+      display: inline-block;
+      cursor: pointer;
+      min-width: 100%;
+      a {
+        color: var(--color-accent-text);
+      }
+    }
+  }
+  width: 80%;
+  text-align: center;
+  td.or {
+    padding: 2ex 0;
+  }
+  a {
+    display: block;
+  }
+}
+
 @media (hover: hover) {
   a:hover {
     background-color: hsla(160, 100%, 37%, 0.2);
