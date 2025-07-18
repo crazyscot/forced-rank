@@ -51,7 +51,7 @@ const results = computed(() => {
   ary.reverse()
   prev_score = -1
   ary.forEach((res) => {
-    if (res.score == prev_score && !res.item.endsWith('=')) {
+    if (res.score == prev_score && !res.place.endsWith('=')) {
       res.place += '='
     }
     prev_score = res.score
@@ -90,7 +90,7 @@ const results = computed(() => {
       </li>
       <li>
         <RouterLink to="/setup"
-          >Start over (different set of items) <font-awesome-icon :icon="['fa', 'power-off']"
+          >Start over (edit items) <font-awesome-icon :icon="['fa', 'power-off']"
         /></RouterLink>
       </li>
       <li>
