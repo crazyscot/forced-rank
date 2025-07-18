@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import SetupItem from '@/components/SetupItem.vue'
-import { state } from '../state.ts'
+import { state, initialiseQuestions } from '../state.ts'
 import { isEmpty, uniq } from 'lodash'
 
 let message = ''
@@ -76,7 +76,7 @@ runChecks()
       >
       <br />
     </div>
-    <component :is="isOK ? 'router-link' : 'span'" to="/questions"
+    <component :is="isOK ? 'router-link' : 'span'" to="/questions" @click="initialiseQuestions()"
       >Onwards! <font-awesome-icon :icon="['fa', 'arrow-right']"
     /></component>
   </nav>
