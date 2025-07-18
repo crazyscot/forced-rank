@@ -4,7 +4,7 @@ import MatrixCell from './MatrixCell.vue'
 </script>
 
 <template>
-  <table class="matrix">
+  <table class="matrix" v-if="state.matrix.length">
     <!-- header row! -->
     <tr>
       <td></td>
