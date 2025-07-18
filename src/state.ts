@@ -9,11 +9,19 @@ export class Question {
   }
 }
 
+export class Response {
+  answer: number | undefined // undefined => not answered yet
+  valid: boolean
+  constructor(valid: boolean) {
+    this.valid = valid
+  }
+}
+
 export const state = reactive({
   items: ['', ''],
 
   questions: <Question[]>[],
-  matrix: <number[][]>[], // responses as a 2-d matrix (triangular; only valid where i<j; -1 denotes unanswered, -2 denotes invalid)
+  matrix: <Response[][]>[],
 })
 
 export function initialiseQuestions() {
@@ -29,12 +37,12 @@ export function initialiseQuestions() {
   state.questions = qns
   //console.log('There are {{ n }} items')
 
-  const matrix = <number[][]>[]
+  const matrix = <Response[][]>[]
   for (let i = 0; i < n; i++) {
     const row = []
     for (let j = 0; j < n; j++) {
-      if (i <= j) row.push(-2)
-      else row.push(-1)
+      if (i <= j) row.push(new Response(false))
+      else row.push(new Response(true))
     }
     //console.log('ROW: ' + row)
     matrix.push(row)
