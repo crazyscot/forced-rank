@@ -10,11 +10,13 @@ import { RouterLink } from 'vue-router'
   <div v-if="state.questions.length" class="qitem">
     <h1>Which wins?</h1>
     <table class="question">
-      <QuestionRow :text="state.items[state.questions[0].first]" @clicked="choice(0)" />
-      <tr>
-        <td class="or">or</td>
-      </tr>
-      <QuestionRow :text="state.items[state.questions[0].second]" @clicked="choice(1)" />
+      <tbody>
+        <QuestionRow :text="state.items[state.questions[0].first]" @clicked="choice(0)" />
+        <tr>
+          <td class="or">or</td>
+        </tr>
+        <QuestionRow :text="state.items[state.questions[0].second]" @clicked="choice(1)" />
+      </tbody>
     </table>
     <p>
       {{ state.questions.length }} question<span v-if="state.questions.length !== 1">s</span> to go

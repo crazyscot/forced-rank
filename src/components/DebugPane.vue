@@ -7,16 +7,18 @@ import Matrix from '@/components/MatrixDisplay.vue'
   <div class="pane">
     <h3>Debug View</h3>
     <table>
-      <tr>
-        <td>Items</td>
-        <td>{{ state.items.length }}</td>
-        <td>{{ state.items }}</td>
-      </tr>
-      <tr>
-        <td>Questions To Go</td>
-        <td>{{ state.questions.length }}</td>
-        <td>{{ state.questions }}</td>
-      </tr>
+      <tbody>
+        <tr>
+          <td>Items</td>
+          <td>{{ state.items.length }}</td>
+          <td>{{ state.items }}</td>
+        </tr>
+        <tr>
+          <td>Questions To Go</td>
+          <td>{{ state.questions.length }}</td>
+          <td>{{ state.questions }}</td>
+        </tr>
+      </tbody>
     </table>
     <div>
       <p>Responses</p>
