@@ -1,9 +1,18 @@
 import { reactive } from 'vue'
 
+export class Question {
+  first: number
+  second: number
+  constructor(opt1: number, opt2: number) {
+    this.first = opt1
+    this.second = opt2
+  }
+}
+
 export const state = reactive({
   items: ['', ''],
 
-  questions: <object[]>[], // A list of { a: index1, b: index2 } pairs
+  questions: <Question[]>[],
   matrix: <number[][]>[], // responses as a 2-d matrix (triangular; only valid where i<j; -1 denotes unanswered, -2 denotes invalid)
 })
 
@@ -14,7 +23,7 @@ export function initialiseQuestions() {
   for (let i = 0; i < n; i++) {
     for (let j = i; j < n; j++) {
       if (i == j) continue
-      qns.push({ a: i, b: j })
+      qns.push(new Question(i, j))
     }
   }
   state.questions = qns
