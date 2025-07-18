@@ -83,11 +83,9 @@ runChecks()
 </template>
 
 <style>
-@media (min-width: 1024px) {
-  .setup {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.setup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>
