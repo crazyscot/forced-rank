@@ -8,21 +8,22 @@ import MatrixCell from './MatrixCell.vue'
     <thead>
       <tr>
         <td></td>
+        <td></td>
         <!-- omit the last column as it contains no valid data -->
         <th class="vert" v-for="(value, i) in state.items.slice(0, -1)" :key="i">
-          {{ i + 1 }} {{ value }}
+          {{ i + 1 }}
         </th>
       </tr>
     </thead>
     <tbody>
-      <!-- omit the first row as it contains no valid data -->
-      <tr v-for="(value, i) in state.items.slice(1)" :key="i">
-        <th class="horiz">{{ i + 2 }} {{ value }}</th>
+      <tr v-for="(value, i) in state.items" :key="i">
+        <th class="horiz headL">{{ i + 1 }}</th>
+        <th class="horiz headR">{{ value }}</th>
         <!-- omit the last column again -->
         <MatrixCell
           v-for="(_, j) in state.items.slice(0, -1)"
           :key="j"
-          :cell-state="state.matrix[i + 1][j]"
+          :cell-state="state.matrix[i + 0][j]"
         />
       </tr>
     </tbody>
@@ -37,11 +38,15 @@ import MatrixCell from './MatrixCell.vue'
     border: 1px solid var(--color-border-hover);
     color: var(--color-heading);
   }
-  /* text colour! maybe alternate? */
+  .headL {
+    border-right: 0px !important;
+  }
+  .headR {
+    border-left: 0px !important;
+  }
   th.vert {
     border: 1px solid var(--color-border-hover);
-    rotate: -90deg;
-    padding: 0.5em 0.5ex; /* yes these are backwards */
+    padding: 0.5ex 0.5em;
   }
   td.valid {
     background: var(--color-background-soft);
