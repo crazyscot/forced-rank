@@ -1,5 +1,9 @@
 <script setup lang="ts">
 //import { RouterLink } from 'vue-router'
+import DebugPane from '@/components/DebugPane.vue'
 </script>
 
-<template>blah!</template>
+<template>
+  <DebugPane />
+  questions view!
+</template>
