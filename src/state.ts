@@ -24,6 +24,10 @@ export const state = reactive({
   matrix: <Response[][]>[],
 })
 
+export const options = reactive({
+  show_scores: true,
+})
+
 export function initialiseQuestions() {
   const n = state.items.length
 
@@ -64,6 +68,17 @@ export function choice(item: number) {
   //console.log(state.matrix)
 
   state.questions.shift()
+}
+
+export class Result {
+  place: string // "1" "2=" etc.
+  item: string
+  score: number
+  constructor(item: string, place: string, score: number) {
+    this.item = item
+    this.place = place
+    this.score = score
+  }
 }
 
 // generally:
