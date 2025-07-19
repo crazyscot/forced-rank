@@ -2,6 +2,8 @@
 import { RouterView } from 'vue-router'
 import { state, options } from '@/state.ts'
 import ToggleSwitch from 'primevue/toggleswitch'
+
+const version = import.meta.env.VITE_APP_VERSION
 </script>
 
 <template>
@@ -15,6 +17,7 @@ import ToggleSwitch from 'primevue/toggleswitch'
         @click="++state.logo_clicks"
       />
     </div>
+    {{ version }}
     <div v-if="state.logo_clicks > 4">Debug <ToggleSwitch v-model="options.debug_mode" /></div>
   </div>
   <main>
