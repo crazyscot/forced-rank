@@ -125,7 +125,8 @@ const version = import.meta.env.VITE_APP_VERSION
     <p>
       The <a href="https://github.com/crazyscot/forced-rank">source code for this tool</a> is
       available on GitHub under the
-      <a href="https://github.com/crazyscot/forced-rank/blob/main/LICENSE">AGPL license</a>.
+      <a href="https://github.com/crazyscot/forced-rank/blob/main/LICENSE">AGPL license</a>. Issue
+      reports, suggestions and PRs are welcome.
     </p>
 
     <br height="2ex" />

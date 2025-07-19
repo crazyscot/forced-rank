@@ -6,6 +6,8 @@ This is a prototype web toy written in VueJS with Vite.
 
 For documentation, refer to the landing page in the live app ([source](src/views/AboutView.vue)).
 
+Issue reports, suggestions and PRs are welcome.
+
 ## Project Setup
 
 ```sh
