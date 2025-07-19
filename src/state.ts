@@ -29,6 +29,7 @@ export const options = reactive({
   debug_matrix: false,
   show_scores: false,
   results_show_grid: false,
+  shuffle_questions: true,
 })
 
 export function initialiseQuestions() {
@@ -47,7 +48,11 @@ export function initialiseQuestions() {
       qns.push(new Question(i, j))
     }
   }
-  state.questions = qns
+  if (options.shuffle_questions) {
+    state.questions = _.shuffle(qns)
+  } else {
+    state.questions = qns
+  }
   //console.log('There are {{ n }} items')
 
   const matrix = <Response[][]>[]
