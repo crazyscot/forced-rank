@@ -17,7 +17,7 @@ import MatrixCell from './MatrixCell.vue'
     </thead>
     <tbody>
       <tr v-for="(value, i) in state.items" :key="i">
-        <th class="horiz headL">{{ i + 1 }}</th>
+        <th class="horiz headL">#{{ i + 1 }}</th>
         <th class="horiz headR">{{ value }}</th>
         <!-- omit the last column again -->
         <MatrixCell
@@ -28,6 +28,11 @@ import MatrixCell from './MatrixCell.vue'
       </tr>
     </tbody>
   </table>
+  <p>
+    <em
+      >Rows and columns are the items, referenced by id#. Each cell shows the id of the winner.</em
+    >
+  </p>
 </template>
 
 <style>

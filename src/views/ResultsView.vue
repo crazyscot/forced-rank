@@ -4,6 +4,7 @@ import MatrixDisplay from '@/components/MatrixDisplay.vue'
 import ResultItem from '@/components/ResultItem.vue'
 import { RouterLink } from 'vue-router'
 import { computed } from 'vue'
+import ToggleSwitch from 'primevue/toggleswitch'
 
 const valid = computed(() => {
   return state.matrix.length > 0
@@ -64,26 +65,42 @@ const results = computed(() => {
 <template>
   <div class="results">
     <h1>Results</h1>
-    <table v-if="valid" class="results">
-      <tbody>
-        <tr>
-          <th>Place</th>
-          <th></th>
-          <th v-if="options.show_scores">Score</th>
-        </tr>
-        <ResultItem v-for="(res, index) in results" :key="index" :item="res" :index="index" />
-      </tbody>
-    </table>
     <div v-if="!valid">How did you get here? There are no results...</div>
-    <!-- TODO toggles for optional stuff -->
-    <MatrixDisplay v-if="valid && options.results_show_grid" />
+    <div v-if="valid">
+      <table v-if="valid" class="results">
+        <tbody>
+          <tr>
+            <th>Place</th>
+            <th></th>
+            <th v-if="options.show_scores">Score</th>
+          </tr>
+          <ResultItem v-for="(res, index) in results" :key="index" :item="res" :index="index" />
+        </tbody>
+      </table>
+      <table class="options">
+        <tbody>
+          <tr>
+            <td>Show scores</td>
+            <td><ToggleSwitch v-model="options.show_scores" /></td>
+          </tr>
+          <tr>
+            <td>Show response matrix</td>
+            <td><ToggleSwitch v-model="options.results_show_grid" /></td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="padding: auto">
+        <br />
+        <MatrixDisplay v-if="valid && options.results_show_grid" />
+      </div>
+    </div>
   </div>
 
   <br style="height: 3ex" />
 
   <nav>
     <ul>
-      <li>
+      <li v-if="valid">
         <RouterLink to="/questions" @click="initialiseQuestions()"
           >Try again (same items) <font-awesome-icon :icon="['fa', 'undo']"
         /></RouterLink>
@@ -129,6 +146,14 @@ const results = computed(() => {
         text-align: center;
       }
     }
+  }
+  table.options {
+    /* center it */
+    margin: 0 auto;
+  }
+  table.matrix {
+    /* center it */
+    margin: 0 auto;
   }
 }
 
