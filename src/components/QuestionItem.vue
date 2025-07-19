@@ -45,7 +45,6 @@ import Button from 'primevue/button'
 <style>
 table.question {
   tr.question {
-    background: var(--color-accent);
     font-size: 250%;
     td {
       display: inline-block;
@@ -54,6 +53,8 @@ table.question {
       a {
         color: var(--color-accent-text);
       }
+      background: var(--color-accent);
+      border-radius: 10px;
     }
   }
   text-align: center;
