@@ -30,7 +30,7 @@ import { RouterLink } from 'vue-router'
       Statistics. This is a sort of <em>round-robin battle royale</em>, but without the violence.
     </p>
     <h2>OK, how does it <em>really</em> work?</h2>
-    <p>We show you a pair of your items. Which wins?</p>
+    <p>We show you a pair of your items, chosen at random. Which wins?</p>
     <p>Repeat until you have answered all the possible pairings.</p>
     <p>
       Every battle is worth one point to the winner. Add up the points and sort by score. Simple?

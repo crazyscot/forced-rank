@@ -4,9 +4,11 @@ import _ from 'lodash'
 export class Question {
   first: number
   second: number
-  constructor(opt1: number, opt2: number) {
+  flip: boolean
+  constructor(opt1: number, opt2: number, flip: boolean) {
     this.first = opt1
     this.second = opt2
+    this.flip = flip
   }
 }
 
@@ -34,6 +36,10 @@ export const options = reactive({
   shuffle_questions: true,
 })
 
+function random_bool() {
+  return Math.random() < 0.5
+}
+
 export function initialiseQuestions() {
   // trim whitespace, filter empties
   for (let item of state.items) {
@@ -42,15 +48,16 @@ export function initialiseQuestions() {
   _.remove(state.items, (it) => !it.length)
 
   const n = state.items.length
+  const shuffle = options.shuffle_questions
 
   const qns = []
   for (let i = 0; i < n; i++) {
     for (let j = i; j < n; j++) {
       if (i == j) continue
-      qns.push(new Question(i, j))
+      qns.push(new Question(i, j, shuffle && random_bool()))
     }
   }
-  if (options.shuffle_questions) {
+  if (shuffle) {
     state.questions = _.shuffle(qns)
   } else {
     state.questions = qns

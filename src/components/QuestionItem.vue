@@ -10,12 +10,20 @@ import { RouterLink } from 'vue-router'
   <div v-if="state.questions.length" class="qitem">
     <h1>Which wins?</h1>
     <table class="question">
-      <tbody>
+      <tbody v-if="!state.questions[0].flip">
+        <!-- ugh, cloned.. there must be a nicer way to do this? -->
         <QuestionRow :text="state.items[state.questions[0].first]" @clicked="choice(0)" />
         <tr>
           <td class="or">or</td>
         </tr>
         <QuestionRow :text="state.items[state.questions[0].second]" @clicked="choice(1)" />
+      </tbody>
+      <tbody v-else>
+        <QuestionRow :text="state.items[state.questions[0].second]" @clicked="choice(1)" />
+        <tr>
+          <td class="or">or</td>
+        </tr>
+        <QuestionRow :text="state.items[state.questions[0].first]" @clicked="choice(0)" />
       </tbody>
     </table>
     <p>
