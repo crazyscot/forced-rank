@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
+const version = import.meta.env.VITE_APP_VERSION
 </script>
 
 <template>
@@ -12,6 +13,9 @@ import { RouterLink } from 'vue-router'
     <div class="greetings">
       <h1 class="highlight">The forced ranker</h1>
     </div>
+    <p>
+      <em>Version: {{ version }}</em>
+    </p>
 
     <h2>What is this?</h2>
     <p>
