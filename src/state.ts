@@ -23,6 +23,8 @@ export const state = reactive({
 
   questions: <Question[]>[],
   matrix: <Response[][]>[],
+
+  logo_clicks: 0,
 })
 
 export const options = reactive({

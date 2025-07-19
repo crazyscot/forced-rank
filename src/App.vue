@@ -1,11 +1,22 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
+import { state, options } from '@/state.ts'
+import ToggleSwitch from 'primevue/toggleswitch'
 </script>
 
 <template>
   <header>
     <div class="logo">
-      <img alt="Forced Ranker logo" src="@/assets/logo.svg" width="80" height="80" />
+      <div>
+        <img
+          alt="Forced Ranker logo"
+          src="@/assets/logo.svg"
+          width="80"
+          height="80"
+          @click="++state.logo_clicks"
+        />
+      </div>
+      <div v-if="state.logo_clicks > 4">Debug <ToggleSwitch v-model="options.debug_mode" /></div>
     </div>
   </header>
   <main>
@@ -27,7 +38,7 @@ header {
   position: fixed;
   top: 10px;
   right: 10px;
-  z-index: -1;
+  z-index: 1;
 }
 
 nav {
