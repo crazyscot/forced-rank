@@ -10,6 +10,15 @@ export class Question {
     this.second = opt2
     this.flip = flip
   }
+  text(first: boolean) {
+    // return first if (first XOR this.flip)
+    // i.e. if they're the same, return second.
+    const item = this.flip === first ? this.second : this.first
+    return state.items[item]
+  }
+  choice(first: boolean) {
+    return this.flip === first ? 1 : 0
+  }
 }
 
 export class Response {
