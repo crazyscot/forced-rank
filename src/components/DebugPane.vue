@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { state } from '../state.ts'
 import Matrix from '@/components/MatrixDisplay.vue'
+import DebugQuestion from './DebugQuestion.vue'
 </script>
 
 <template>
@@ -19,6 +20,12 @@ import Matrix from '@/components/MatrixDisplay.vue'
         <tr>
           <td>Current Question</td>
           <td>{{ state.questions[0] }}</td>
+        </tr>
+        <tr>
+          <td>Questions</td>
+          <td>
+            <DebugQuestion v-for="(q, i) in state.questions" :key="i" :q="q" />
+          </td>
         </tr>
       </tbody>
     </table>
