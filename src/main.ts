@@ -40,5 +40,6 @@ app.component('font-awesome-icon', FontAwesomeIcon)
 
 app.use(router)
 app.use(PrimeVue, { theme: { preset: Aura } })
+// see https://primevue.org/theming/styled/ for changing the colour scheme of PrimeVue components
 
 app.mount('#app')

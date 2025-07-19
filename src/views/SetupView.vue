@@ -131,20 +131,23 @@ runChecks()
       >
     </div>
     <component :is="isOK ? 'router-link' : 'span'" to="/questions" @click="initialiseQuestions()"
-      >Let's go rank them! <font-awesome-icon :icon="['fa', 'arrow-right']"
-    /></component>
+      ><Button severity="contrast"
+        >Let's go rank them! <font-awesome-icon :icon="['fa', 'arrow-right']" /></Button
+    ></component>
     <br />
   </nav>
   <div style="height: 2vh"></div>
   <div class="setup">
     <p>
       Want to play? Try
-      <Button @click="demoMode()">Demo mode <font-awesome-icon :icon="['fa', 'magic']" /></Button>
+      <Button @click="demoMode()" severity="secondary"
+        >Demo mode <font-awesome-icon :icon="['fa', 'magic']"
+      /></Button>
     </p>
     <br />
     <p>
       Finished playing?
-      <Button @click="startOver()"
+      <Button @click="startOver()" severity="secondary"
         >Start over<font-awesome-icon :icon="['fa', 'recycle']"
       /></Button>
     </p>

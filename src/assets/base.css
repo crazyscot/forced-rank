@@ -10,10 +10,13 @@
 
   --vt-c-indigo: #3c546c;
 
-  --vt-accent-light: #dbc35d;
-  --vt-accent-text-light: #26332e;
-  --vt-accent-dark: #72642f;
-  --vt-accent-text-dark: #efe;
+  --vt-accent-dark: #3f6212; /* lime.800 */
+  --vt-accent-text-dark: #eee;
+  --vt-accent-light: #bef264; /* lime.300 */
+  --vt-accent-text-light: #225;
+
+  --vt-highlight-light: #4d7c0f; /* lime.700 */
+  --vt-highlight-dark: #d9ff9d; /* lime.200 */
 
   --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
   --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
@@ -42,6 +45,8 @@
 
   --color-accent: var(--vt-accent-light);
   --color-accent-text: var(--vt-accent-text-light);
+
+  --color-highlight: var(--vt-highlight-light);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -58,6 +63,8 @@
 
     --color-accent: var(--vt-accent-dark);
     --color-accent-text: var(--vt-accent-text-dark);
+
+    --color-highlight: var(--vt-highlight-dark);
   }
 }
 

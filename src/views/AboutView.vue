@@ -10,7 +10,7 @@ import { RouterLink } from 'vue-router'
       /></RouterLink>
     </nav>
     <div class="greetings">
-      <h1 class="green">The forced ranker</h1>
+      <h1 class="highlight">The forced ranker</h1>
     </div>
 
     <h2>What is this?</h2>
