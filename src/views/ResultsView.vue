@@ -7,10 +7,6 @@ import { computed } from 'vue'
 import ToggleSwitch from 'primevue/toggleswitch'
 import Button from 'primevue/button'
 
-const valid = computed(() => {
-  return state.matrix.length > 0
-})
-
 const results = computed(() => {
   const n = state.items.length
   const scores: number[] = new Array(n)
@@ -65,10 +61,9 @@ const results = computed(() => {
 
 <template>
   <div class="results">
-    <h1>Results</h1>
-    <div v-if="!valid">How did you get here? There are no results...</div>
-    <div v-if="valid">
-      <table v-if="valid" class="results">
+    <div v-if="state.matrix_valid">
+      <h1>Results</h1>
+      <table class="results">
         <tbody>
           <tr>
             <th>Place</th>
@@ -92,8 +87,14 @@ const results = computed(() => {
       </table>
       <div style="padding: auto">
         <br />
-        <MatrixDisplay v-if="valid && options.results_show_grid" />
+        <MatrixDisplay v-if="options.results_show_grid" />
       </div>
+    </div>
+    <div v-else>
+      <h1><font-awesome-icon :icon="['fas', 'exclamation-triangle']" class="error" /> Oops</h1>
+      <p>You got here without any questions or responses.</p>
+      <p>Did you press Reload? Please don't do that.</p>
+      <p>Did you direct-link here? Sorry, that won't work.</p>
     </div>
   </div>
 
@@ -101,7 +102,7 @@ const results = computed(() => {
 
   <nav>
     <ul>
-      <li v-if="valid">
+      <li v-if="state.matrix_valid">
         <RouterLink to="/questions" @click="initialiseQuestions()"
           ><Button severity="contrast"
             >Try again (same items) <font-awesome-icon :icon="['fa', 'undo']" /></Button

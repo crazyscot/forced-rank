@@ -31,14 +31,26 @@ import Button from 'primevue/button'
       {{ state.questions.length }} question<span v-if="state.questions.length !== 1">s</span> to go
     </p>
   </div>
-  <div v-if="state.questions.length === 0" class="done">
-    <h1>We're all done!</h1>
-    <h2>
-      <RouterLink to="/results"
-        ><Button severity="contrast"
-          >Ready for the results? <font-awesome-icon :icon="['fa', 'arrow-right']" /></Button
+  <div v-if="state.questions.length === 0">
+    <div v-if="state.matrix_valid" class="done">
+      <h1>We're all done!</h1>
+      <h2>
+        <RouterLink to="/results"
+          ><Button severity="contrast"
+            >Ready for the results? <font-awesome-icon :icon="['fa', 'arrow-right']" /></Button
+        ></RouterLink>
+      </h2>
+    </div>
+    <div v-else class="oops">
+      <h1><font-awesome-icon :icon="['fas', 'exclamation-triangle']" class="error" /> Oops</h1>
+      <p>You got here without any questions or responses.</p>
+      <p>Did you press Reload? Please don't do that.</p>
+      <p>Did you direct-link? Please don't do that.</p>
+      <br />
+      <RouterLink to="/setup"
+        ><Button severity="danger">Start over<font-awesome-icon :icon="['fa', 'recycle']" /></Button
       ></RouterLink>
-    </h2>
+    </div>
   </div>
 </template>
 

@@ -25,6 +25,7 @@ export const state = reactive({
 
   questions: <Question[]>[],
   matrix: <Response[][]>[],
+  matrix_valid: false,
 
   logo_clicks: 0,
 })
@@ -75,6 +76,7 @@ export function initialiseQuestions() {
     matrix.push(row)
   }
   state.matrix = matrix
+  state.matrix_valid = true
 }
 
 export function choice(item: number) {
