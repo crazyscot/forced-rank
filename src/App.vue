@@ -8,14 +8,16 @@ import ToggleSwitch from 'primevue/toggleswitch'
   <div class="logo">
     <div>
       <img
+        class="logo"
         alt="Forced Ranker logo"
         src="@/assets/logo.svg"
-        width="80"
-        height="80"
         @click="++state.logo_clicks"
       />
+      <div v-if="state.logo_clicks > 4">
+        debug
+        <ToggleSwitch v-model="options.debug_mode" />
+      </div>
     </div>
-    <div v-if="state.logo_clicks > 4">Debug <ToggleSwitch v-model="options.debug_mode" /></div>
   </div>
   <main>
     <div class="wrapper">
@@ -30,13 +32,20 @@ header {
   max-height: 100vh;
 }
 
-.logo {
+div.logo {
   display: block;
   margin: 0 auto 2rem;
   position: fixed;
-  top: 10px;
-  right: 10px;
+  top: 0px;
+  right: 0px;
   z-index: 1;
+}
+img.logo {
+  width: 6vw;
+  height: 6vw;
+  padding: 5px 5px 0 0;
+  margin-left: auto;
+  float: right;
 }
 
 nav {
@@ -78,6 +87,12 @@ nav a:first-of-type {
 
     padding: 1rem 0;
     margin-top: 1rem;
+  }
+
+  img.logo {
+    width: 130px;
+    height: 130px;
+    padding: 10px 10px 0 0;
   }
 }
 </style>
