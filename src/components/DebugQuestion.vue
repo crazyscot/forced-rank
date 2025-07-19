@@ -6,4 +6,6 @@ const props = defineProps<{
 }>()
 </script>
 
-<template>({{ props.q.first }}, {{ props.q.second }}) &nbsp;</template>
+<template>
+  ({{ props.q.first }}, {{ props.q.second }}<span v-if="props.q.flip">, flip</span>) &nbsp;
+</template>
