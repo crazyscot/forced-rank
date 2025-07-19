@@ -48,6 +48,7 @@ const version = import.meta.env.VITE_APP_VERSION
       <tbody>
         <tr class="row1">
           <th>Items</th>
+          <td>&nbsp;</td>
           <td>3</td>
           <td>4</td>
           <td>5</td>
@@ -64,6 +65,7 @@ const version = import.meta.env.VITE_APP_VERSION
         </tr>
         <tr class="row2">
           <th>Pairs</th>
+          <td>&nbsp;</td>
           <td>3</td>
           <td>6</td>
           <td>10</td>
@@ -81,13 +83,16 @@ const version = import.meta.env.VITE_APP_VERSION
       </tbody>
     </table>
     <p>
-      These are
-      <a href="https://en.wikipedia.org/wiki/Binomial_coefficient">binomial coefficients</a>, the
-      formula is:
+      Mathematicians will recognise these as <em><q>n choose 2</q></em
+      >: these are
+      <a href="https://en.wikipedia.org/wiki/Binomial_coefficient">binomial coefficients</a>
+      with the formula
       <math>
-        <mrow><mi>n</mi><mo>(</mo><mi>n</mi><mo>-</mo><mn>1</mn><mo>)</mo></mrow
-        ><mo>&divide;</mo><mn>2</mn>
-      </math>
+        <mfrac>
+          <mrow><mi>n</mi><mo> (</mo><mi>n</mi><mo>&minus;</mo><mn>1</mn><mo>)</mo></mrow>
+          <mrow><mn>2</mn></mrow>
+        </mfrac> </math
+      >.
     </p>
     <h2>What might go wrong?</h2>
     <ul>
@@ -173,6 +178,6 @@ table.pairings {
 }
 
 math {
-  background-color: var(--color-accent);
+  font-size: 150%;
 }
 </style>
