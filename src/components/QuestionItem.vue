@@ -31,8 +31,7 @@ import Button from 'primevue/button'
       {{ state.questions.length }} question<span v-if="state.questions.length !== 1">s</span> to go
     </p>
   </div>
-  <div v-if="state.questions.length === 0">
-    <!-- centre it vertically on page? -->
+  <div v-if="state.questions.length === 0" class="done">
     <h1>We're all done!</h1>
     <h2>
       <RouterLink to="/results"
@@ -66,8 +65,13 @@ table.question {
   }
 }
 
-.qitem {
+.qitem,
+.done {
   display: flex;
   flex-direction: column;
+}
+.done {
+  align-items: center;
+  justify-content: center;
 }
 </style>
