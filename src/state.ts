@@ -26,7 +26,7 @@ export const state = reactive({
 })
 
 export const options = reactive({
-  debug_matrix: false,
+  debug_mode: false,
   show_scores: false,
   results_show_grid: false,
   shuffle_questions: true,

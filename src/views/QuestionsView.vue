@@ -5,7 +5,7 @@ import QuestionItem from '@/components/QuestionItem.vue'
 </script>
 
 <template>
-  <DebugPane v-if="options.debug_matrix" />
+  <DebugPane v-if="options.debug_mode" />
   <div id="questions">
     <QuestionItem />
   </div>
