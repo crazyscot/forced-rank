@@ -8,7 +8,7 @@ defineEmits(['clicked'])
 <template>
   <tr class="question">
     <td>
-      <a href="#" @click="$emit('clicked')">
+      <a @click="$emit('clicked')">
         {{ text }}
       </a>
     </td>
