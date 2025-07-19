@@ -3,6 +3,11 @@ import { RouterView } from 'vue-router'
 </script>
 
 <template>
+  <header>
+    <div class="logo">
+      <img alt="Forced Ranker logo" src="@/assets/logo.svg" width="80" height="80" />
+    </div>
+  </header>
   <main>
     <div class="wrapper">
       <RouterView />
@@ -19,6 +24,10 @@ header {
 .logo {
   display: block;
   margin: 0 auto 2rem;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: -1;
 }
 
 nav {
