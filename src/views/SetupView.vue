@@ -1,22 +1,34 @@
 <script setup lang="ts">
 import SetupItem from '@/components/SetupItem.vue'
 import { state, initialiseQuestions } from '../state.ts'
-import { isEmpty, uniq } from 'lodash'
+import _ from 'lodash'
 
 let message = ''
 let isOK = true
 
+const MAX_ITEMS = 15
+const MIN_ITEMS = 3
+
 function runChecks() {
   let msg = ''
-  // Uniqueness
-  const deduped = uniq(state.items)
-  if (deduped.length != state.items.length) {
+
+  // Trim whitespace, filter out
+  const filtered = _.chain(state.items)
+    .map((it) => it.trim())
+    .filter((it) => it.length > 0)
+    .value()
+
+  // There must be at least 3 non-whitespace items to proceed
+  if (filtered.length < MIN_ITEMS) {
+    msg = 'You need to provide at least ' + MIN_ITEMS + ' non-empty items'
+  }
+
+  // They must be unique
+  const deduped = _.uniq(filtered)
+  if (deduped.length != filtered.length) {
     msg = 'All items must be unique'
   }
-  // All items must be filled in
-  if (state.items.some((s: string) => isEmpty(s.trim()))) {
-    msg = 'All items must be filled in'
-  }
+
   message = msg
   isOK = message === ''
 }
@@ -27,20 +39,57 @@ function updateItem(idx: number, value: string) {
   //console.log(state.items)
   runChecks()
 }
-function addItem() {
-  if (state.items.length < 15) {
-    state.items.push('')
+function addItem(top: boolean) {
+  if (state.items.length < MAX_ITEMS) {
+    if (top) state.items.unshift('')
+    else state.items.push('')
   }
   //console.log('ADD; len is now ' + state.items.length)
   //console.log(state.items)
   runChecks()
 }
 function deleteItem(idx: number) {
-  if (state.items.length > 2) {
+  if (state.items.length) {
     state.items.splice(idx, 1)
   }
   //console.log('DELETE #' + idx + ': len is now ' + state.items.length)
   //console.log(state.items)
+  runChecks()
+}
+
+// for a fun twist: we have separate sets of items we might add
+const DEMOS = [
+  ['puppies', 'kittens', 'pandas', 'guinea pigs', 'rabbits'],
+  ['lions', 'giraffes', 'rhinoceroses', 'leopards', 'elephants'],
+  ['slugs', 'snails', 'rats', 'snakes', 'spiders'],
+]
+
+let demo_state = 0
+
+function demoMode() {
+  // clear out any blanks while we're at it
+  _.remove(state.items, (it) => !it.trim().length)
+
+  console.log('state is ' + demo_state)
+
+  DEMOS[demo_state].forEach((it) => {
+    if (state.items.length < MAX_ITEMS && !state.items.includes(it)) {
+      state.items.push(it)
+    }
+  })
+  runChecks()
+
+  if (++demo_state >= DEMOS.length) {
+    demo_state = 0
+  }
+  console.log('state is now ' + demo_state)
+}
+
+function startOver() {
+  _.remove(state.items, () => true)
+  state.items.push('')
+  state.items.push('')
+  state.items.push('')
   runChecks()
 }
 
@@ -52,7 +101,12 @@ runChecks()
     <RouterLink to="/"><font-awesome-icon :icon="['fa', 'arrow-left']" /> (Back) </RouterLink>
   </nav>
   <div class="setup">
-    <h1>The items to rank</h1>
+    <h2>What items do you want to rank?</h2>
+    <p><em>(maximum 15)</em></p>
+
+    <component :is="state.items.length < MAX_ITEMS ? 'a' : 'span'" @click="addItem(true)">
+      <font-awesome-icon :icon="['fas', 'plus-circle']" title="Add another"
+    /></component>
 
     <ul>
       <SetupItem
@@ -64,28 +118,40 @@ runChecks()
         @delete="deleteItem(index)"
       />
     </ul>
-    <a @click="addItem()">
-      <font-awesome-icon :icon="['fas', 'plus-circle']" title="Add another" />
-    </a>
+    <component :is="state.items.length < MAX_ITEMS ? 'a' : 'span'" @click="addItem(false)">
+      <font-awesome-icon :icon="['fas', 'plus-circle']" title="Add another"
+    /></component>
   </div>
   <nav>
-    Ready to decide which is best?
+    <p><em>Ready to decide which is best?</em></p>
     <div class="error">
       <span v-if="!isOK"
         ><font-awesome-icon :icon="['fas', 'exclamation-circle']" /> {{ message }}</span
       >
-      <br />
     </div>
     <component :is="isOK ? 'router-link' : 'span'" to="/questions" @click="initialiseQuestions()"
-      >Onwards! <font-awesome-icon :icon="['fa', 'arrow-right']"
+      >Let's go rank them! <font-awesome-icon :icon="['fa', 'arrow-right']"
     /></component>
+    <br />
   </nav>
+  <div style="height: 2vh"></div>
+  <div class="setup">
+    <p>Want to play? Try <button @click="demoMode()">Demo mode</button></p>
+    <br />
+    <p>Finished playing? <button @click="startOver()">Start over</button></p>
+  </div>
 </template>
+
+<!-- Start Over mode XXX -->
 
 <style>
 .setup {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.item {
+  font-size: 125%;
+  margin: 0.75ex 0;
 }
 </style>

@@ -6,7 +6,8 @@ defineEmits(['delete'])
 
 <template>
   <div>
-    <input v-model="modelValue" />
+    <input v-model="modelValue" class="item" autofocus />
+    &nbsp;
     <a @click="$emit('delete')">
       <font-awesome-icon :icon="['fas', 'trash-can']" title="Delete" />
     </a>

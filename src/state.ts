@@ -1,4 +1,5 @@
 import { reactive, ref } from 'vue'
+import _ from 'lodash'
 
 export class Question {
   first: number
@@ -18,19 +19,25 @@ export class Response {
 }
 
 export const state = reactive({
-  items: ['', ''],
+  items: ['', '', '', '', ''],
 
   questions: <Question[]>[],
   matrix: <Response[][]>[],
 })
 
 export const options = reactive({
-  debug_matrix: true,
-  show_scores: true,
-  results_show_grid: true,
+  debug_matrix: false,
+  show_scores: false,
+  results_show_grid: false,
 })
 
 export function initialiseQuestions() {
+  // trim whitespace, filter empties
+  for (let item of state.items) {
+    item = item.trim()
+  }
+  _.remove(state.items, (it) => !it.length)
+
   const n = state.items.length
 
   const qns = []
