@@ -16,6 +16,9 @@ import ToggleSwitch from 'primevue/toggleswitch'
       <div v-if="state.logo_clicks > 4">
         debug
         <ToggleSwitch v-model="options.debug_mode" />
+        <br />
+        shuffle
+        <ToggleSwitch v-model="options.shuffle_questions" />
       </div>
     </div>
   </div>
