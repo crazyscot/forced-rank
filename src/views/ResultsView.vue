@@ -5,6 +5,7 @@ import ResultItem from '@/components/ResultItem.vue'
 import { RouterLink } from 'vue-router'
 import { computed } from 'vue'
 import ToggleSwitch from 'primevue/toggleswitch'
+import Button from 'primevue/button'
 
 const valid = computed(() => {
   return state.matrix.length > 0
@@ -102,16 +103,21 @@ const results = computed(() => {
     <ul>
       <li v-if="valid">
         <RouterLink to="/questions" @click="initialiseQuestions()"
-          >Try again (same items) <font-awesome-icon :icon="['fa', 'undo']"
-        /></RouterLink>
+          ><Button severity="contrast"
+            >Try again (same items) <font-awesome-icon :icon="['fa', 'undo']" /></Button
+        ></RouterLink>
       </li>
       <li>
         <RouterLink to="/setup"
-          >Start over (edit items) <font-awesome-icon :icon="['fa', 'power-off']"
-        /></RouterLink>
+          ><Button severity="secondary"
+            >Start over (edit items) <font-awesome-icon :icon="['fa', 'recycle']" /></Button
+        ></RouterLink>
       </li>
       <li>
-        <RouterLink to="/">About <font-awesome-icon :icon="['fa', 'question']" /></RouterLink>
+        <RouterLink to="/"
+          ><Button severity="secondary"
+            >About <font-awesome-icon :icon="['fa', 'question']" /></Button
+        ></RouterLink>
       </li>
     </ul>
   </nav>

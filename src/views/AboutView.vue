@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
+import Button from 'primevue/button'
 const version = import.meta.env.VITE_APP_VERSION
 </script>
 
@@ -7,8 +8,10 @@ const version = import.meta.env.VITE_APP_VERSION
   <div class="about">
     <nav>
       <RouterLink to="/setup"
-        >(Been here before? Jump right in!) <font-awesome-icon :icon="['fa', 'arrow-right']"
-      /></RouterLink>
+        >(Been here before? Jump right in!)
+        <Button severity="contrast"
+          >Start <font-awesome-icon :icon="['fa', 'arrow-right']" /></Button
+      ></RouterLink>
     </nav>
     <div class="greetings">
       <h1 class="highlight">The forced ranker</h1>
@@ -129,8 +132,10 @@ const version = import.meta.env.VITE_APP_VERSION
     <h3>
       Ready?
       <RouterLink to="/setup"
-        >Let's get started! <font-awesome-icon :icon="['fa', 'arrow-right']"
-      /></RouterLink>
+        >Let's get started!
+        <Button severity="contrast"
+          >Start <font-awesome-icon :icon="['fa', 'arrow-right']" /></Button
+      ></RouterLink>
     </h3>
   </div>
 </template>

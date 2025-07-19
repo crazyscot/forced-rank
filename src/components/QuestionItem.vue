@@ -2,6 +2,7 @@
 import { state, choice } from '../state.ts'
 import QuestionRow from './QuestionRow.vue'
 import { RouterLink } from 'vue-router'
+import Button from 'primevue/button'
 
 // TODO make this emit instead of call the root choice fn ?
 </script>
@@ -35,8 +36,9 @@ import { RouterLink } from 'vue-router'
     <h1>We're all done!</h1>
     <h2>
       <RouterLink to="/results"
-        >Ready for the results? <font-awesome-icon :icon="['fa', 'arrow-right']"
-      /></RouterLink>
+        ><Button severity="contrast"
+          >Ready for the results? <font-awesome-icon :icon="['fa', 'arrow-right']" /></Button
+      ></RouterLink>
     </h2>
   </div>
 </template>

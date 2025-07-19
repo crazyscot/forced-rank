@@ -99,7 +99,9 @@ runChecks()
 
 <template>
   <nav>
-    <RouterLink to="/"><font-awesome-icon :icon="['fa', 'arrow-left']" /> (Back) </RouterLink>
+    <RouterLink to="/"
+      ><Button severity="secondary"><font-awesome-icon :icon="['fa', 'arrow-left']" />Back</Button>
+    </RouterLink>
   </nav>
   <div class="setup">
     <h2>What items do you want to rank?</h2>
