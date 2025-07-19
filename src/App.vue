@@ -5,20 +5,18 @@ import ToggleSwitch from 'primevue/toggleswitch'
 </script>
 
 <template>
-  <header>
-    <div class="logo">
-      <div>
-        <img
-          alt="Forced Ranker logo"
-          src="@/assets/logo.svg"
-          width="80"
-          height="80"
-          @click="++state.logo_clicks"
-        />
-      </div>
-      <div v-if="state.logo_clicks > 4">Debug <ToggleSwitch v-model="options.debug_mode" /></div>
+  <div class="logo">
+    <div>
+      <img
+        alt="Forced Ranker logo"
+        src="@/assets/logo.svg"
+        width="80"
+        height="80"
+        @click="++state.logo_clicks"
+      />
     </div>
-  </header>
+    <div v-if="state.logo_clicks > 4">Debug <ToggleSwitch v-model="options.debug_mode" /></div>
+  </div>
   <main>
     <div class="wrapper">
       <RouterView />
@@ -67,16 +65,6 @@ nav a:first-of-type {
 }
 
 @media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
   header .wrapper {
     display: flex;
     place-items: flex-start;
