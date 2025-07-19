@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import SetupItem from '@/components/SetupItem.vue'
+import Button from 'primevue/button'
 import { state, initialiseQuestions } from '../state.ts'
 import _ from 'lodash'
 
@@ -136,13 +137,19 @@ runChecks()
   </nav>
   <div style="height: 2vh"></div>
   <div class="setup">
-    <p>Want to play? Try <button @click="demoMode()">Demo mode</button></p>
+    <p>
+      Want to play? Try
+      <Button @click="demoMode()">Demo mode <font-awesome-icon :icon="['fa', 'magic']" /></Button>
+    </p>
     <br />
-    <p>Finished playing? <button @click="startOver()">Start over</button></p>
+    <p>
+      Finished playing?
+      <Button @click="startOver()"
+        >Start over<font-awesome-icon :icon="['fa', 'recycle']"
+      /></Button>
+    </p>
   </div>
 </template>
-
-<!-- Start Over mode XXX -->
 
 <style>
 .setup {
