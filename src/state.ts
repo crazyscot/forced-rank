@@ -56,6 +56,11 @@ export function initialiseQuestions() {
     item = item.trim()
   }
   _.remove(state.items, (it) => !it.length)
+  if (state.items.length < 3) {
+    // Nothing to do, give them minimum blanks
+    while (state.items.length < 3) state.items.push('')
+    return
+  }
 
   const n = state.items.length
   const shuffle = options.shuffle_questions
