@@ -152,4 +152,5 @@ import ToggleSwitch from 'primevue/toggleswitch'
       /></RouterLink>
     </div>
   </nav>
+  <br />
 </template>
