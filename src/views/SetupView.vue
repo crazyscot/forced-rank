@@ -100,7 +100,7 @@ runChecks()
 <template>
   <nav>
     <RouterLink to="/"
-      ><Button severity="secondary"><font-awesome-icon :icon="['fa', 'arrow-left']" />Back</Button>
+      ><Button severity="secondary"><font-awesome-icon :icon="['fa', 'arrow-left']" />About</Button>
     </RouterLink>
   </nav>
   <div class="setup">
@@ -136,7 +136,7 @@ runChecks()
     </div>
     <component :is="isOK ? 'router-link' : 'span'" to="/questions" @click="initialiseQuestions()"
       ><Button severity="contrast"
-        >Let's go rank them! <font-awesome-icon :icon="['fa', 'arrow-right']" /></Button
+        >Let's go! <font-awesome-icon :icon="['fa', 'arrow-right']" /></Button
     ></component>
     <br />
   </nav>
@@ -145,13 +145,12 @@ runChecks()
     <p>
       Want to play? Try
       <Button @click="demoMode()" severity="secondary"
-        >Demo mode <font-awesome-icon :icon="['fa', 'magic']"
+        >Demo mode <font-awesome-icon :icon="['fa', 'wand-magic-sparkles']"
       /></Button>
     </p>
     <br />
     <p>
-      Finished playing?
-      <Button @click="startOver()" severity="secondary"
+      <Button @click="startOver()" severity="warn"
         >Start over<font-awesome-icon :icon="['fa', 'recycle']"
       /></Button>
     </p>

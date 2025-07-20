@@ -17,7 +17,7 @@ import {
   faUndo,
   faQuestion,
   faRecycle,
-  faMagic,
+  faWandMagicSparkles,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 //import { faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons'
@@ -31,7 +31,7 @@ library.add(
   faUndo,
   faQuestion,
   faRecycle,
-  faMagic,
+  faWandMagicSparkles,
 )
 
 const app = createApp(App)

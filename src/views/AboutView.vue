@@ -54,8 +54,11 @@ defineProps<{
         Enter a list of items to rank.
         <ul>
           <li>
-            If you want to have a play to see how it works, there's a Demo Mode button which
-            pre-fills it with some types of animal. Press it more than once, if you dare.
+            If you want to have a play to see how it works, look for
+            <Button severity="secondary"
+              >Demo mode <font-awesome-icon :icon="['fa', 'wand-magic-sparkles']"
+            /></Button>
+            which pre-fills it with some animals. (Press it more than once, if you dare!)
           </li>
         </ul>
       </li>
