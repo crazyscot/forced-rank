@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import SetupView from '@/views/SetupView.vue'
 import AboutView from '@/views/AboutView.vue'
+import AboutMoreView from '@/views/AboutMoreView.vue'
 import QuestionsView from '@/views/QuestionsView.vue'
 import ResultsView from '@/views/ResultsView.vue'
 
@@ -15,6 +16,11 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       // component: () => import('../views/AboutView.vue'),
+    },
+    {
+      path: '/about_more',
+      name: 'about_more',
+      component: AboutMoreView,
     },
     {
       path: '/setup',

@@ -47,3 +47,7 @@ a,
     padding: 0 2rem;
   }
 }
+
+strong {
+  font-weight: bolder;
+}

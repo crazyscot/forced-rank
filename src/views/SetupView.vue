@@ -21,7 +21,7 @@ function runChecks() {
 
   // There must be at least 3 non-whitespace items to proceed
   if (filtered.length < MIN_ITEMS) {
-    msg = 'You need to provide at least ' + MIN_ITEMS + ' non-empty items'
+    msg = 'You need to provide at least ' + MIN_ITEMS + ' items'
   }
 
   // They must be unique
@@ -105,7 +105,9 @@ runChecks()
   </nav>
   <div class="setup">
     <h2>What items do you want to rank?</h2>
-    <p><em>(maximum 15)</em></p>
+    <p>
+      <em>(maximum {{ MAX_ITEMS }})</em>
+    </p>
 
     <component :is="state.items.length < MAX_ITEMS ? 'a' : 'span'" @click="addItem(true)">
       <font-awesome-icon :icon="['fas', 'plus-circle']" title="Add another"
